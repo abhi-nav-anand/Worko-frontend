@@ -11,12 +11,14 @@ import NotFound from "./pages/NotFound";
 import './index.css';
 import Toast from "./components/Toast";
 import Footer from "./components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000"; // Backend base URL
 
 export default function App() {
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState({ show: false, message: "" });
+  const navigate = useNavigate();
   const showToast = message => {
     setToast({ show: true, message });
     setTimeout(() => setToast({ show: false, message: "" }), 2000);
@@ -35,7 +37,7 @@ export default function App() {
       const data = await res.json();
       if (!res.ok) return setError(data.error || "Signup failed");
       showToast("Account created successfully! You can now log in.");
-      setTimeout(() => { window.location.href = "/login"; }, 1200);
+      setTimeout(() => { navigate("/dashboard"); }, 1200);
     } catch (err) {
       setError("Signup failed");
     } finally {
@@ -57,7 +59,7 @@ export default function App() {
       if (!res.ok) return setError(data.error || "Login failed");
       localStorage.setItem("token", data.token);
       showToast("Login successful!");
-      setTimeout(() => { window.location.href = "/dashboard"; }, 1200);
+      setTimeout(() => { navigate("/dashboard"); }, 1200);
     } catch (err) {
       setError("Login failed");
     } finally {
