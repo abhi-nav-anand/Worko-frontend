@@ -88,7 +88,7 @@ export default function App() {
       }
       showToast("Candidate referred successfully!");
       if (typeof resetForm === 'function') resetForm();
-      setTimeout(() => navigate("/dashboard"), 1200); // Use navigate instead of reload
+      setTimeout(() => navigate("/dashboard"), 1200); // Use navigate instead of reload 
     } catch (err) {
       alert("Error submitting referral. Please try again.");
     } finally {
