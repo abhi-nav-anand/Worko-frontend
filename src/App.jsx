@@ -37,7 +37,7 @@ export default function App() {
       const data = await res.json();
       if (!res.ok) return setError(data.error || "Signup failed");
       showToast("Account created successfully! You can now log in.");
-      setTimeout(() => { navigate("/dashboard"); }, 1200);
+      setTimeout(() => { navigate("/"); }, 1200);
     } catch (err) {
       setError("Signup failed");
     } finally {
@@ -110,7 +110,6 @@ export default function App() {
   return (
     <>
       <Toast message={toast.message} show={toast.show} />
-      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -131,7 +130,6 @@ export default function App() {
           <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>
       <Footer />
     </>
   );
