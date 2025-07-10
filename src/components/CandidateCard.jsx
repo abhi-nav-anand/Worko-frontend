@@ -8,7 +8,7 @@ const statusColors = {
 
 export default function CandidateCard({ candidate, onStatusChange }) {
   return (
-    <div className="bg-white rounded-lg shadow p-4 flex flex-col gap-2 border border-gray-100">
+    <div className="bg-white rounded-lg shadow p-4 flex flex-col gap-2 border border-blue-500">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-lg font-semibold">{candidate.name}</h2>

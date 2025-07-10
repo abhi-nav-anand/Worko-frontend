@@ -42,7 +42,7 @@ export default function App() {
       setError("Signup failed");
     } finally {
       setLoading(false);
-    }
+    }_
   };
 
   // Login handler
